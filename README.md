@@ -1,135 +1,169 @@
-# Turborepo starter
+# 🌟 LiveKits - Connect, Converse, Remember
 
-This Turborepo starter is maintained by the Turborepo core team.
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![LiveKit](https://img.shields.io/badge/LiveKit-000000?style=for-the-badge&logo=livekit&logoColor=white)](https://livekit.io/)
+[![Turborepo](https://img.shields.io/badge/Turborepo-000000?style=for-the-badge&logo=turborepo&logoColor=white)](https://turborepo.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-## Using this example
+> A revolutionary platform that seamlessly connects users and AI agents in immersive real-time rooms, powered by advanced semantic memory for unforgettable conversations.
 
-Run the following command:
+## ✨ Features
 
-```sh
-npx create-turbo@latest
-```
+### 🚀 Real-Time Collaboration
+- **WebSocket-Powered Connections**: Instant, low-latency communication between users and AI agents
+- **Dynamic Rooms**: Create or join accessible rooms where anyone can participate
+- **Multi-User Support**: Handle multiple participants simultaneously with LiveKit's robust infrastructure
 
-## What's inside?
+### 🤖 AI Agent Integration
+- **Intelligent Agents**: Powered by advanced AI models for natural, contextual interactions
+- **Agent Management**: Easy deployment and management of AI agents within rooms
+- **Customizable Behaviors**: Tailor agent responses and personalities to fit your needs
 
-This Turborepo includes the following packages/apps:
+### 🧠 Semantic Memory System
+- **Conversation Recall**: Advanced semantic search and retrieval for previous discussions
+- **Persistent Context**: Maintain conversation history across sessions
+- **Smart Memory**: AI-driven memory management that understands context and relevance
 
-### Apps and Packages
+### 🎨 Modern User Experience
+- **Beautiful Interface**: Sleek, responsive design built with Next.js and Tailwind CSS
+- **Intuitive Controls**: Easy-to-use interface for managing rooms and interactions
+- **Cross-Platform**: Works seamlessly on desktop and mobile devices
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+## 🏗️ Architecture
 
 ```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Next.js Web   │    │   Python API    │    │   LiveKit       │
+│   Frontend      │◄──►│   Backend       │◄──►│   Real-Time     │
+│                 │    │                 │    │   Engine        │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                        │                        │
+         └────────────────────────┼────────────────────────┘
+                                  │
+                    ┌─────────────────┐
+                    │   AI Agents     │
+                    │   & Memory      │
+                    └─────────────────┘
 ```
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+## 🚀 Quick Start
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+### Prerequisites
+- Node.js 18+
+- Python 3.8+
+- pnpm (recommended) or npm/yarn
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+### Installation
 
-### Develop
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Saket6198/Attack-Capital-Test.git
+   cd livekits
+   ```
 
-To develop all apps and packages, run the following command:
+2. **Install dependencies**
+   ```bash
+   # Install all dependencies
+   pnpm install
 
-```
-cd my-turborepo
+   # Or with npm
+   npm install
+   ```
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+3. **Set up environment variables**
+   ```bash
+   # Copy environment files
+   cp apps/api/development.env apps/api/.env
+   # Edit .env with your LiveKit credentials and other settings
+   ```
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
+4. **Start development servers**
+   ```bash
+   # Start all services
+   pnpm dev
 
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+   # Or start specific services
+   pnpm dev --filter=web    # Frontend only
+   pnpm dev --filter=api    # Backend only
+   ```
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
+5. **Open your browser**
+   ```
+   http://localhost:3000
+   ```
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
+## 📖 Usage
 
-### Remote Caching
+### Creating a Room
+1. Navigate to the rooms section
+2. Click "Create New Room"
+3. Set room name and optional settings
+4. Share the room link with participants
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+### Joining as a User
+1. Click on a room invitation link
+2. Enter your display name
+3. Start chatting with AI agents and other users
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+### Managing AI Agents
+1. Access the agent dashboard
+2. Configure agent parameters
+3. Deploy agents to specific rooms
+4. Monitor agent performance and interactions
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+## 🛠️ Tech Stack
 
-```
-cd my-turborepo
+### Frontend
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Modern UI components
+- **LiveKit React SDK** - Real-time communication
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
+### Backend
+- **Python** - High-performance backend
+- **FastAPI** - Modern API framework
+- **LiveKit Server SDK** - Real-time server capabilities
+- **WebSockets** - Bidirectional communication
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
+### DevOps & Tools
+- **Turborepo** - Monorepo build system
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **pnpm** - Fast package manager
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## 🤝 Contributing
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
+## 📄 License
 
-## Useful Links
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Learn more about the power of Turborepo:
+## 🙏 Acknowledgments
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+- [LiveKit](https://livekit.io/) for the amazing real-time communication platform
+- [Vercel](https://vercel.com/) for hosting and deployment
+- [shadcn](https://ui.shadcn.com/) for beautiful UI components
+- The open-source community for inspiration and tools
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/Saket6198/Attack-Capital-Test/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Saket6198/Attack-Capital-Test/discussions)
+- **Email**: For private inquiries
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by <a href="https://github.com/Saket6198">Saket6198</a></p>
+  <p>⭐ Star this repo if you find it useful!</p>
+</div>
