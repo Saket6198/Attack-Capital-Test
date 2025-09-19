@@ -13,8 +13,8 @@ def hello_fast_api():
     return {"message": "Hello from FastAPI"}
 
 
-@app.get("/api/getToken")
-def getToken():
+@app.get("/api/getToken/{username}/{roomId}")
+def getToken(username: str, roomId: str):
     try:
         api_key = os.getenv("LIVEKIT_API_KEY")
         api_secret = os.getenv("LIVEKIT_API_SECRET")
@@ -26,12 +26,39 @@ def getToken():
 
         token = (
             api.AccessToken(api_key, api_secret)
-            .with_identity("identity")
-            .with_name("my name")
+            .with_identity(username)
+            .with_name(username)
             .with_grants(
                 api.VideoGrants(
                     room_join=True,
-                    room="my-room",
+                    room=roomId,
+                )
+            )
+        )
+        return {"token": token.to_jwt()}
+    except Exception as e:
+        return {"error": f"Failed to generate token: {str(e)}"}
+
+
+@app.get("/api/getAgentToken/{roomId}")
+def getAgentToken(roomId: str):
+    try:
+        api_key = os.getenv("LIVEKIT_API_KEY")
+        api_secret = os.getenv("LIVEKIT_API_SECRET")
+
+        if not api_key or not api_secret:
+            return {
+                "error": "LiveKit API credentials not found in environment variables"
+            }
+
+        token = (
+            api.AccessToken(api_key, api_secret)
+            .with_identity("AI_Agent")
+            .with_name("AI_Agent")
+            .with_grants(
+                api.VideoGrants(
+                    room_join=True,
+                    room=roomId,
                 )
             )
         )
