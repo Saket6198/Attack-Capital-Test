@@ -10,11 +10,20 @@ const nextConfig = {
             : "/api/",
       },
       {
-        source: "/api/getToken",
+        source: "/api/getToken/:username/:roomId",
         destination:
           process.env.NODE_ENV === "development"
-            ? "http://127.0.0.1:8000/api/getToken"
-            : "/api/getToken",
+            ? "http://127.0.0.1:8000/api/getToken/:username/:roomId"
+            : "/api/getToken/:username/:roomId",
+      },
+      {
+        // Proxy token requests with a username parameter to the FastAPI backend.
+        // Example: /api/getToken/alice -> http://127.0.0.1:8000/api/getToken/alice (dev)
+        source: "/api/getAgentToken/:roomId",
+        destination:
+          process.env.NODE_ENV === "development"
+            ? "http://127.0.0.1:8000/api/getAgentToken/:roomId"
+            : "/api/getAgentToken/:roomId",
       },
       {
         source: "/docs",
