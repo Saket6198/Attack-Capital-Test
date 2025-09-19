@@ -1,4 +1,4 @@
-# 🌟 LiveKits - Connect, Converse, Remember
+# 🌟 AI Chat Rooms - Connect, Converse, Remember
 
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
