@@ -1,0 +1,26 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "apps/api/index.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/getToken/(?<username>[^/]+)/(?<roomId>[^/]+)",
+            "dest": "/apps/api/index.py"
+        },
+        {
+            "src": "/api/getAgentToken/(?<roomId>[^/]+)",
+            "dest": "/apps/api/index.py"
+        }
+    ],
+    "env": {
+        "LIVEKIT_API_KEY": "@livekit_api_key",
+        "LIVEKIT_API_SECRET": "@livekit_api_secret"
+    }
+}
